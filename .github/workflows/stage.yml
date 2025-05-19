@@ -6,7 +6,7 @@ on:
             - main
 
 jobs:
-    Build:
+    build:
         runs-on: ubuntu-latest
         steps:
             - name: Checkout code
@@ -14,17 +14,17 @@ jobs:
             - name: Build project
               run: echo "Building the project.."
 
-    Test:
+    test:
         runs-on: ubuntu-latest
-        needs: Build
+        needs: build
         steps:
             - name: Checkout code
               uses: actions/checkout@v4
             - name: Test project
               uses: echo "Running the Test..."
-    Deploy:
+    deploy:
         runs-on: ubuntu-latest
-        needs: Test
+        needs: test
         steps:
             - name: Cheeckout code
               uses: actions/checkout@v4
